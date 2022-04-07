@@ -59,12 +59,15 @@ export const handle = async ({ event, resolve }) => {
 // /** @type {import('@sveltejs/kit').GetSession} */
 export function getSession(event){
     const authenticated = event.locals.authenticated;
-    console.log('getSessao');
-    if(!authenticated){
+    const {routeId} = event; 
+    // console.log('getSessao----------------------------------',event);
+    if(!authenticated ){
         console.log('sem autenticacao');
-        return {}
+        return {
+            // message:(routeId!='' && routeId!='auth')?'You are not logged, please Sign In':''
+        }
     }else{
-        console.log('Autenticado');
+        console.log('Autenticado',event.locals);
         return event.locals
     }
     // console.log(event)
