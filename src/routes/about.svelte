@@ -1,19 +1,18 @@
 <script context="module">
     export async function load({session}){
-        console.log('sessao about',session)
+		console.log('sessao home',session);
         if(!session.authenticated){
-            return {
-                status: 302,
-                redirect: '/auth'
+            return{
+                status:302,
+                redirect:'/auth'
             }
         }else{
-            return {
-                props:{
-                    sessao: session.sessao
-                }
-            }
+            return{}
         }
     }
+</script>
+<script>
+
 </script>
 <h1>About</h1>
 <a href="/home">Home</a>

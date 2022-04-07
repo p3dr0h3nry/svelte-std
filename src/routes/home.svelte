@@ -1,25 +1,25 @@
 <script context="module">
     export async function load({session}){
-		console.log('sessao',session)
-        return { props:{authenticated:session.authenticated}}
+		console.log('sessao home',session);
+        if(!session.authenticated){
+            return{
+                status:302,
+                redirect:'/auth'
+            }
+        }
+        return{
+            props:{
+                user: session.user
+            }
+        }
     }
 </script>
 <script>
-    
-    // import * as cookie from 'cookie';
-    // const cookies = cookie.parse(headers.cookie || '');
-    export let authenticated;
-    if(!authenticated){
-        window.location.replace('/auth');
-    }
-// import { onMount } from "svelte";
-    console.log('checou na home');
-
-    // export let sessao
-
-    // onMount(async()=>{
-
-    // });
+    export let user;
+    console.log(user);
 </script>
 <h1>Home</h1>
-<a href="/about">About</a>
+<a href="/about">About </a>
+<span>
+    {user.session_id}
+</span>

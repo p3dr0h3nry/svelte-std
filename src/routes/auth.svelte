@@ -1,19 +1,18 @@
 <script context="module">
     export async function load({session}){
-		console.log('sessao auth',session)
-        return { props:{authenticated:session.authenticated}}
+		console.log('request auth',session.authenticated);
+		if(session.authenticated){
+			return{
+                status:302,
+                redirect:'/home'
+            }
+		}else{
+			return {}
+		}
     }
 </script>
 <script>
-	// import { Router, Route, Link } from 'svelte-navigator';
-	import * as cookie from 'cookie';
 	import '../assets/css/login.scss';
-	import { createEventDispatcher } from 'svelte';
-	import { user } from '../store/auth';
-	import { get_current_component } from 'svelte/internal';
-
-	const dispatch = createEventDispatcher();
-	const component = get_current_component();
 
 	let username;
 	let password;
@@ -21,11 +20,7 @@
 
 	console.log('chamou auth');
 
-	export let authenticated;
-	console.log('esta autenticado auth',authenticated);
-	if(authenticated){
-		window.location.replace('/home');
-	}
+
 	const submit = async () => {
 		error= undefined;
 		if (!username || !password) {
