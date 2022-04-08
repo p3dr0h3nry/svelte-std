@@ -1,0 +1,15 @@
+syntax = "proto3";
+import "products.proto";
+
+message Order { 
+    int32               id      = 1;
+    string              desc    = 2;
+    float               total   = 3;
+    message Itens{
+        repeated        Product itens    = 4;
+    }    
+}
+
+message Orders {
+    repeated Order order = 1;
+}

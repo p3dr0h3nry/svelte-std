@@ -1,6 +1,6 @@
 <script context="module">
     export async function load({session}){
-		console.log('request auth',session.authenticated);
+		// console.log('request auth',session.authenticated);
 		if(session.authenticated){
 			return{
                 status:302,
@@ -18,7 +18,7 @@
 	let password;
 	let error;
 
-	console.log('chamou auth');
+	// console.log('chamou auth');
 
 
 	const submit = async () => {
