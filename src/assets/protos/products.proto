@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+message Product { 
+    int32   id      = 1;
+    string  desc    = 2;
+    float   value   = 3;
+    int32   qtd     = 4;
+}
+
+message Products {
+    repeated Product product = 1;
+}

@@ -7,7 +7,7 @@ export const handle = async ({ event, resolve }) => {
     const {request } = event;
     const headers = request.headers;
     const cookies = cookie.parse(headers.get('cookie') || '');
-    
+    // console.log('cookies hook',cookies.name);
     // const response = await resolve(request);
     // console.log('request--------------',request,'evento------------',event);
     // console.log('getcontext',cookies,request.locals);
@@ -62,12 +62,12 @@ export function getSession(event){
     const {routeId} = event; 
     // console.log('getSessao----------------------------------',event);
     if(!authenticated ){
-        console.log('sem autenticacao');
+        // console.log('sem autenticacao');
         return {
             // message:(routeId!='' && routeId!='auth')?'You are not logged, please Sign In':''
         }
     }else{
-        console.log('Autenticado',event.locals);
+        // console.log('Autenticado',event.locals);
         return event.locals
     }
     // console.log(event)

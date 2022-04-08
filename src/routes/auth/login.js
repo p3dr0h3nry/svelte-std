@@ -31,14 +31,24 @@ export async function post({ request }) {
 		// return res;
 		const data = await res.json();
 		// const cookieId = uuidv4();
-		const headers = {
-			'Set-Cookie': cookie.serialize('session_id', data.access_token, {
-				httpOnly: true,
-				maxAge: 60 * 60 * 8,
-				sameSite: 'lax',
-				path: '/'
-			})
-		};
+		const session = cookie.serialize('session_id', data.access_token, {
+			httpOnly: true,
+			maxAge: 60 * 60 * 8,
+			sameSite: 'lax',
+			path: '/'
+		});
+		console.log('data login----',data);
+		const user = {...data.user};
+		const name = cookie.serialize('name', user.name, {
+			httpOnly: true,
+			maxAge: 60 * 60 * 8,
+			sameSite: 'lax',
+			path: '/'
+		});
+
+		const headers = {        
+			'Set-Cookie': [session, name]
+		   }
 		
 		// console.log($user);
 		return {

@@ -1,5 +1,12 @@
 @import '../css/variables.scss';
 
+body{
+    background-color: $backGroundColor;
+    padding: 0;
+    margin: 0;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
 .navBar{
     background-color: $navBarBkgColor;
     width: 100%;
@@ -7,11 +14,54 @@
     top: 0;
     padding: 5px;
     text-align: center;
+    height: 20px;
+    a{
+        color: white;
+        font-size: 16px;
+        text-decoration: none;
+        margin-right: 20px;
+    }
+    .navUser{
+        color: white;
+        right: 20px;
+        position: absolute;
+        top:5px;
+    }
+    .menu{
+        color: white;
+        left: 20px;
+        position: absolute;
+        top:5px;
+    }
 }
 .content{
-    padding: 20px 5px 5px 5px;
-    background-color: beige;
+    padding: 10px 5px 5px 5px;
+    width: 100vw;
+    height: calc(100vh - 20px);
+    text-align: center;
 }
+.content .flex{
+    display: flex;
+    justify-content: center;
+
+    .content-orders{
+        width: 450px;
+        height: 150px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px 0 #0000001f !important;
+        margin: 5px;
+    }
+    .content-details{
+        width: 450px;
+        height: 150px;
+        background-color: beige;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px 0 #0000001f !important;
+        margin: 5px;
+    }
+}
+
 
 
 .btn{
