@@ -1,16 +1,16 @@
 <script context="module">
-    export async function load({session}){
-		// console.log('request auth',session.authenticated);
-		if(session.authenticated){
-			return{
-                status:302,
-                redirect:'/home'
-            }
-		}else{
-			return {}
+	export async function load({ session }) {
+		if (session.authenticated) {
+			return {
+				status: 302,
+				redirect: '/home'
+			};
+		} else {
+			return {};
 		}
-    }
+	}
 </script>
+
 <script>
 	import '../assets/css/login.scss';
 
@@ -18,11 +18,8 @@
 	let password;
 	let error;
 
-	// console.log('chamou auth');
-
-
 	const submit = async () => {
-		error= undefined;
+		error = undefined;
 		if (!username || !password) {
 			error = 'Falha';
 			return false;
@@ -39,12 +36,7 @@
 		});
 		if (res.ok) {
 			console.log(res.headers);
-			// const data = await res.json();
-			// user.set({...data});
-			// console.log($user,data);
-			// dispatch('success',{text:'teste'});
 			window.location.replace('/home');
-			// goto("/home");
 		} else {
 			console.log(res);
 			error = res.statusText;
@@ -52,42 +44,42 @@
 	};
 </script>
 
-	<div class="authContent">
-		<div class="authBox">
-			<div class="titleDiv">
-				<h1>Please Sign In</h1>
+<div class="authContent">
+	<div class="authBox">
+		<div class="titleDiv">
+			<h1>Please Sign In</h1>
+		</div>
+		<hr />
+		<form on:submit|preventDefault={submit}>
+			<div class="loginForm">
+				<div class="class-form">
+					<input
+						class="inputForm"
+						type="text"
+						id="username"
+						bind:value={username}
+						placeholder="Enter your username"
+					/>
+				</div>
+				<div class="class-form">
+					<input
+						class="inputForm"
+						type="password"
+						bind:value={password}
+						placeholder="Enter your password"
+					/>
+				</div>
 			</div>
 			<hr />
-			<form on:submit|preventDefault={submit}>
-				<div class="loginForm">
-					<div class="class-form">
-						<input
-							class="inputForm"
-							type="text"
-							id="username"
-							bind:value={username}
-							placeholder="Enter your username"
-						/>
-					</div>
-					<div class="class-form">
-						<input
-							class="inputForm"
-							type="password"
-							bind:value={password}
-							placeholder="Enter your password"
-						/>
-					</div>
-				</div>
-				<hr />
 
-				<div class="botton-box">
-					<button class="btn btn-button btn-success btn-block" type="submit">Signin</button>
-				</div>
-			</form>
-			{#if error}
-				<div class="errorDiv">
-					<p>{error}</p>
-				</div>
-			{/if}
-		</div>
+			<div class="botton-box">
+				<button class="btn btn-button btn-success btn-block" type="submit">Signin</button>
+			</div>
+		</form>
+		{#if error}
+			<div class="errorDiv">
+				<p>{error}</p>
+			</div>
+		{/if}
 	</div>
+</div>

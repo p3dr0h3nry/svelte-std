@@ -1,6 +1,5 @@
 <script context="module">
     export async function load({session}){
-		// console.log('request auth',session);
             if(!session.authenticated){
                 return{
                     status:302,
@@ -20,7 +19,6 @@
     import '../assets/css/global.scss';
     export let authenticated;
     export let name;
-    // console.log('layout ',authenticated, 'nome ',name);
 </script>
 {#if authenticated}
     <Nav {name} />
