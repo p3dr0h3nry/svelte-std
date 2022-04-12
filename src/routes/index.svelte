@@ -1,5 +1,6 @@
-<script context="module">
+<!-- <script context="module">
 	export async function load({ session }) {
+		console.log('chamou index module');
 		if (session.authenticated) {
 			return {
 				status: 302,
@@ -12,7 +13,7 @@
 			};
 		}
 	}
-</script>
+</script> -->
 
 <script>
 	import { Router, Route } from 'svelte-routing';

@@ -13,7 +13,7 @@
 
 import jspb from 'google-protobuf';
 var goog = jspb;
-var global = (function() { return this || window || global || self || Function('return this')(); }).call(null);
+var global = (function() { return this || global || Function('return this')(); }).call(null);
 
 goog.exportSymbol('proto.Product', null, global);
 goog.exportSymbol('proto.Products', null, global);
@@ -94,7 +94,7 @@ proto.Product.toObject = function(includeInstance, msg) {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     desc: jspb.Message.getFieldWithDefault(msg, 2, ""),
     value: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
-    qtd: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    stock: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -145,7 +145,7 @@ proto.Product.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 4:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setQtd(value);
+      msg.setStock(value);
       break;
     default:
       reader.skipField();
@@ -197,7 +197,7 @@ proto.Product.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getQtd();
+  f = message.getStock();
   if (f !== 0) {
     writer.writeInt32(
       4,
@@ -262,10 +262,10 @@ proto.Product.prototype.setValue = function(value) {
 
 
 /**
- * optional int32 qtd = 4;
+ * optional int32 stock = 4;
  * @return {number}
  */
-proto.Product.prototype.getQtd = function() {
+proto.Product.prototype.getStock = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
@@ -274,7 +274,7 @@ proto.Product.prototype.getQtd = function() {
  * @param {number} value
  * @return {!proto.Product} returns this
  */
-proto.Product.prototype.setQtd = function(value) {
+proto.Product.prototype.setStock = function(value) {
   return jspb.Message.setProto3IntField(this, 4, value);
 };
 

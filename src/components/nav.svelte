@@ -1,5 +1,4 @@
 <script>
-	import * as j from 'jquery';
 	export let name;
 
 	function redirect(local) {

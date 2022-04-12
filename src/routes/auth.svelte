@@ -1,4 +1,4 @@
-<script context="module">
+<!-- <script context="module">
 	export async function load({ session }) {
 		if (session.authenticated) {
 			return {
@@ -9,7 +9,7 @@
 			return {};
 		}
 	}
-</script>
+</script> -->
 
 <script>
 	import '../assets/css/login.scss';

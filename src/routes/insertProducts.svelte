@@ -16,9 +16,9 @@
 
 <script>
     
-    import * as SchemaOrder from '../assets/protos/orders_pb';
+    import * as SchemaOrder from '../assets/protos/products_pb';
     
-    const { Product, Products, Order, Orders } = SchemaOrder.default;
+    const { Product, Products } = SchemaOrder.default;
 	let id,descr,stock,value;
 	const products = new Products();
 
@@ -30,7 +30,7 @@
 		const prd1 = new Product();
 		prd1.setId(100);
 		prd1.setDesc('Produto teste 1');
-		prd1.setQtd(10);
+		prd1.setStock(10);
 		prd1.setValue(15.95);
 	}
 
