@@ -1,16 +1,15 @@
-<script context="module">
-	export async function load({ session }) {
-		if (session.authenticated) {
-			return {
-				status: 302,
-				redirect: '/home'
-			};
-		} else {
-			return {};
-		}
-	}
-</script>
 
+<script context="module">
+    export async function load({session}){
+            if(!session.authenticated){
+                return{}
+			}
+			return{
+                status:302,
+                    redirect:'/home'
+            }
+    }
+</script>
 <script>
 	import '../assets/css/login.scss';
 

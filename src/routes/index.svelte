@@ -1,19 +1,15 @@
-<script context="module">
-	export async function load({ session }) {
-		if (session.authenticated) {
-			return {
-				status: 302,
-				redirect: '/home'
-			};
-		} else {
-			return {
-				status: 302,
-				redirect: '/auth'
-			};
-		}
-	}
-</script>
 
+<script context="module">
+    export async function load({session}){
+            if(!session.authenticated){
+                return{
+                    status:302,
+                    redirect:'/auth'
+                }
+            }
+			return{}
+    }
+</script>
 <script>
 	import { Router, Route } from 'svelte-routing';
 	import Auth from './auth.svelte';
@@ -22,7 +18,6 @@
 	import insertProducts from './insertProducts.svelte';
 	import Nav from '../components/nav.svelte';
 </script>
-
 <Router>
 	<main>
 		<Route path="/auth" component={Auth} {Nav} />

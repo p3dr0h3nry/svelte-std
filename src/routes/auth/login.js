@@ -4,7 +4,7 @@ import * as cookie from 'cookie';
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function post({ request }) {
 	let body = await request.json();
-	const res = await fetch('http://localhost:5001/svelte/signin', {
+	const res = await fetch('https://tsm-backend.herokuapp.com/svelte/signin', {
 		method: 'POST',
 		body: JSON.stringify({
 			username: body.username,

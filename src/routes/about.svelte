@@ -1,18 +1,14 @@
-<script context="module">
-	export async function load({ session }) {
-		console.log('sessao home', session);
-		if (!session.authenticated) {
-			return {
-				status: 302,
-				redirect: '/auth'
-			};
-		} else {
-			return {};
-		}
-	}
-</script>
 
-<script>
+<script context="module">
+    export async function load({session}){
+            if(!session.authenticated){
+                return{
+                    status:302,
+                    redirect:'/auth'
+                }
+            }
+			return{}
+    }
 </script>
 
 <h1>About</h1>
